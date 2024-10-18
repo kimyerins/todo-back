@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/", taskController.createTask);
 
-router.get("/", taskController.getTask);
+router.get("/", taskController.getTasks);
 
 router.put("/:id", taskController.updateTask);
 
