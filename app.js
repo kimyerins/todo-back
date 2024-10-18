@@ -12,6 +12,7 @@ app.use(cors());
 app.use("/api", indexRouter);
 
 const mongoURI = MONGODB_URI_PROD;
+const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
@@ -22,6 +23,6 @@ mongoose
     console.log("DB connection fail", err);
   });
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(PORT, () => {
   console.log("server on 5000");
 });
