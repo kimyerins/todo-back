@@ -32,7 +32,7 @@ userController.loginWithEmail = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email }, "-createdAt -updatedAt -v");
     if (user) {
-      const isMath = bcrypt.compareSync(password, user.password);
+      const isMath = bcrypt.compare(password, user.password);
       if (isMath) {
         const token = user.generateToken();
         return res.status(200).json({ status: "sucess", user, token });
